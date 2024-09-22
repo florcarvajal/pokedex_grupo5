@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.formulario_login {
+    display: inline;
+}
+
+.titulo {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.logo {
+    width: 20vh;
+}

@@ -8,6 +8,7 @@ $sql = "SELECT p.nombre, p.id_unico, p.imagen, p.descripcion, t.tipo, t.imagen A
         FROM pokemones p
         JOIN tipo t ON p.tipo_id = t.id";
 $result = $conn->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -16,42 +17,49 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.0/css/bootstrap.min.css">
-    <style>
-        .pokemon-card {
-            margin: 20px;
-        }
-        .pokemon-image {
-            width: 150px;
-            height: 150px;
-        }
-        .tipo-image {
-            width: 50px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="estilos/estilo-index.css">
 </head>
 <body>
+<?php include 'header.php'; ?>
+
 <div class="container">
-    <h1 class="text-center mt-4">Pokédex</h1>
-    <div class="row">
+    <div class="pokemon-list">
         <?php
         // Verificar si hay resultados
         if ($result->num_rows > 0) {
             // Mostrar cada Pokémon en una tarjeta
-            while($row = $result->fetch_assoc()) {
-                echo '<div class="col-md-4">';
-                echo '<div class="card pokemon-card">';
-                echo '<img src="imagenes/' . $row["imagen"] . '" class="card-img-top pokemon-image" alt="' . $row["nombre"] . '">';
-                echo '<div class="card-body">';
-                echo '<h5 class="card-title">' . $row["nombre"] . ' (' . $row["id_unico"] . ')</h5>';
-                echo '<p class="card-text">' . $row["descripcion"] . '</p>';
-                echo '<p><img src="imagenes/' . $row["tipo_imagen"] . '" class="tipo-image" alt="' . $row["tipo"] . '"> Tipo: ' . $row["tipo"] . '</p>';
+            while ($row = $result->fetch_assoc()) {
+                // Obtener el color según el tipo de Pokémon
+                $colorClase = '';
+                switch ($row["tipo"]) {
+                    case 'FUEGO':
+                        $colorClase = 'color-fuego';
+                        break;
+                    case 'PLANTA':
+                        $colorClase = 'color-planta';
+                        break;
+                    case 'ELECTRICO':
+                        $colorClase = 'color-electrico';
+                        break;
+                    case 'AGUA':
+                        $colorClase = 'color-agua';
+                        break;
+                }
+
+                echo '<div class="pokemon-card ' . $colorClase . '">';
+                echo '<div class="pokemon-image-container">';
+                echo '<img src="imagenes/' . $row["imagen"] . '" class="pokemon-image" alt="' . $row["nombre"] . '">';
                 echo '</div>';
+                echo '<div class="pokemon-info">';
+                echo '<h5 class="card-title">' . $row["nombre"] . '</h5>';
                 echo '</div>';
+                echo '<div class="pokemon-tipo">';
+                echo '<img src="imagenes/' . $row["tipo_imagen"] . '" class="tipo-image" alt="' . $row["tipo"] . '" title="' . $row["tipo"] . '">';
                 echo '</div>';
+                echo '</div>'; // .pokemon-card
             }
         } else {
-            echo '<p>No se encontraron Pokémon.</p>';
+            echo '<p class="text-center">No se encontraron Pokémon.</p>';
         }
         ?>
     </div>

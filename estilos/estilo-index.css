@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background-image: url("../imagenes/background.png");
+    background-attachment: fixed;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px; /* Max ancho de la página */
+    margin: 0 auto; /* Centramos el contenedor */
+
+}
+
+
+.pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 5%;
+}
+
+.pokemon-card {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px; /* Espaciado entre tarjetas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra debajo de la tarjeta */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 50%; /* Ancho fijo para las tarjetas */
+    text-align: center; /* Centramos el texto en la tarjeta */
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    align-items: center;
+}
+
+.pokemon-card:hover {
+    transform: scale(1.05); /* Aumentar ligeramente al pasar el mouse */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Aumentar sombra al pasar el mouse */
+}
+
+.pokemon-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Espaciado debajo de la imagen */
+}
+
+.pokemon-image {
+    width: 120px; /* Aumentar tamaño de imagen */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px; /* Cuadrada con bordes suaves */
+}
+
+.card-title {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.tipo-image {
+    width: 60px; /* Aumentar el tamaño de la imagen del tipo */
+    height: 60px;
+}
+
+/* Colores por tipo de Pokémon */
+.color-fuego {
+    color: #ff7111; /* Naranja */
+}
+
+.color-planta {
+    color: #3bcb02; /* Verde */
+}
+
+.color-electrico {
+    color: #FFC300; /* Amarillo */
+}
+
+.color-agua {
+    color: #717ffe; /* Celeste */
+}
+
+/* Estilo de respuesta en móvil */
+@media (max-width: 768px) {
+    .pokemon-card {
+        width: 90%; /* Tarjetas ocupan el 90% del ancho en móvil */
+    }
+
+    .pokemon-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .tipo-image {
+        width: 50px;
+        height: 50px;
+    }
+}

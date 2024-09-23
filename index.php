@@ -1,12 +1,17 @@
 <?php
-// Incluir la conexión a la base de datos
 global $conn;
 include 'conexion.php';
 
-// Consulta para obtener todos los Pokémon y sus tipos
+$search = isset($_POST['search']) ? trim($_POST['search']) : '';
+
 $sql = "SELECT p.nombre, p.id_unico, p.imagen, p.descripcion, t.tipo, t.imagen AS tipo_imagen
         FROM pokemones p
         JOIN tipo t ON p.tipo_id = t.id";
+
+if (!empty($search)) {
+    $sql .= " WHERE p.nombre LIKE '%" . $conn->real_escape_string($search) . "%'";
+}
+
 $result = $conn->query($sql);
 
 ?>
@@ -23,45 +28,41 @@ $result = $conn->query($sql);
 <?php include 'header.php'; ?>
 
 <div class="container">
+    <!-- Barra de busqueda -->
+    <form method="POST" action="" class="busqueda">
+
+        <input type="text" placeholder="¿Quién es este pokémon?" name="search" />
+        <button type="submit">
+            <img src="imagenes/buscar.png" alt="Buscar" class="search-icon">
+        </button>
+
+    </form>
+
+
     <div class="pokemon-list">
         <?php
-        // Verificar si hay resultados
-        if ($result->num_rows > 0) {
-            // Mostrar cada Pokémon en una tarjeta
-            while ($row = $result->fetch_assoc()) {
-                // Obtener el color según el tipo de Pokémon
-                $colorClase = '';
-                switch ($row["tipo"]) {
-                    case 'FUEGO':
-                        $colorClase = 'color-fuego';
-                        break;
-                    case 'PLANTA':
-                        $colorClase = 'color-planta';
-                        break;
-                    case 'ELECTRICO':
-                        $colorClase = 'color-electrico';
-                        break;
-                    case 'AGUA':
-                        $colorClase = 'color-agua';
-                        break;
-                }
+        include 'lista_pokemon.php';
 
-                echo '<div class="pokemon-card ' . $colorClase . '">';
-                echo '<div class="pokemon-image-container">';
-                echo '<img src="imagenes/' . $row["imagen"] . '" class="pokemon-image" alt="' . $row["nombre"] . '">';
-                echo '</div>';
-                echo '<div class="pokemon-info">';
-                echo '<h5 class="card-title">' . $row["nombre"] . '</h5>';
-                echo '</div>';
-                echo '<div class="pokemon-tipo">';
-                echo '<img src="imagenes/' . $row["tipo_imagen"] . '" class="tipo-image" alt="' . $row["tipo"] . '" title="' . $row["tipo"] . '">';
-                echo '</div>';
-                echo '</div>'; // .pokemon-card
-            }
+        if ($result->num_rows > 0) {
+            listaPokemon($result);
         } else {
-            echo '<p class="text-center">No se encontraron Pokémon.</p>';
+            if (!empty($search)) {
+                echo '<div class="pokemon-card"><div></div><div>Pokémon no encontrado</div><div></div></div>';
+            }
+
+            $sql_todos = "SELECT p.nombre, p.id_unico, p.imagen, p.descripcion, t.tipo, t.imagen AS tipo_imagen
+                  FROM pokemones p
+                  JOIN tipo t ON p.tipo_id = t.id";
+            $result_todos = $conn->query($sql_todos);
+
+            if ($result_todos->num_rows > 0) {
+                listaPokemon($result_todos); // Mostrar todos los Pokémon
+            } else {
+                echo '<p class="text-center">No se encontraron pokémon.</p>';
+            }
         }
         ?>
+
     </div>
 </div>
 </body>

@@ -3,14 +3,13 @@
 body {
     background-image: url("../imagenes/background.png");
     background-attachment: fixed;
-    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    max-width: 1200px; /* Max ancho de la página */
-    margin: 0 auto; /* Centramos el contenedor */
+    max-width: 1200px;
+    margin: 0 auto;
 
 }
 
@@ -19,39 +18,40 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 5%;
 }
 
 .pokemon-card {
+    font-family: "Press Start 2P", system-ui;
     background-color: #ffffff;
+    border: 2px solid #231e1e;
     padding: 20px;
-    margin: 15px; /* Espaciado entre tarjetas */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra debajo de la tarjeta */
+    margin: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 50%; /* Ancho fijo para las tarjetas */
-    text-align: center; /* Centramos el texto en la tarjeta */
+    width: 50%;
+    text-align: center;
     display: grid;
     grid-template-columns: 20% 60% 20%;
     align-items: center;
 }
 
 .pokemon-card:hover {
-    transform: scale(1.05); /* Aumentar ligeramente al pasar el mouse */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Aumentar sombra al pasar el mouse */
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .pokemon-image-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px; /* Espaciado debajo de la imagen */
+    margin-bottom: 10px;
 }
 
 .pokemon-image {
-    width: 120px; /* Aumentar tamaño de imagen */
+    width: 120px;
     height: 120px;
     object-fit: cover;
-    border-radius: 10px; /* Cuadrada con bordes suaves */
+    border-radius: 10px;
 }
 
 .card-title {
@@ -62,31 +62,85 @@ body {
 }
 
 .tipo-image {
-    width: 60px; /* Aumentar el tamaño de la imagen del tipo */
+    width: 60px;
     height: 60px;
 }
 
-/* Colores por tipo de Pokémon */
+
 .color-fuego {
-    color: #ff7111; /* Naranja */
+    color: #ff7111;
 }
 
 .color-planta {
-    color: #3bcb02; /* Verde */
+    color: #3bcb02;
 }
 
 .color-electrico {
-    color: #FFC300; /* Amarillo */
+    color: #FFC300;
 }
 
 .color-agua {
-    color: #717ffe; /* Celeste */
+    color: #717ffe;
 }
 
-/* Estilo de respuesta en móvil */
+.busqueda {
+    padding-top: 2%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.busqueda input[type="text"] {
+    background-color: #6c935e;
+    font-family: "Press Start 2P", system-ui;
+    padding: 10px; /* Espaciado interno */
+    border: 2px solid #231e1e;
+    border-radius: 25px;
+    outline: none;
+    width: 40%;
+    transition: border-color 0.3s;
+}
+
+.busqueda input[type="text"]::placeholder {
+    color: #201d1d;
+    opacity: 1;
+}
+
+
+.busqueda input[type="text"]:focus {
+    border-color: #393434;
+}
+
+.busqueda button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    width: auto;
+    height: 100%;
+    max-height: 30px;
+    transition: transform 0.3s;
+}
+
+
+.busqueda button:hover .search-icon {
+    transform: scale(1.1);
+}
+
+
 @media (max-width: 768px) {
+    body {
+        background-color: #dc1e2e;
+        background-image: none;
+    }
     .pokemon-card {
-        width: 90%; /* Tarjetas ocupan el 90% del ancho en móvil */
+        width: 90%;
     }
 
     .pokemon-image {
@@ -95,11 +149,17 @@ body {
     }
 
     .card-title {
-        font-size: 1.2rem;
+        font-size: 20px;
     }
 
     .tipo-image {
         width: 50px;
         height: 50px;
+    }
+
+    .busqueda input[type="text"] {
+    font-size: 12px;
+        width: 65%;
+
     }
 }

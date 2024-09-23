@@ -15,7 +15,7 @@
 
         .header img {
             height: 100px;
-       padding: 10px 0;
+            padding: 10px 0;
         }
 
         .header .user {
@@ -27,6 +27,6 @@
 <body>
 <header class="header">
     <div></div>
-    <img src="imagenes/logo_pokedex.png" alt="Logo" class="logo">
+    <a href="index.php"> <img src="imagenes/logo_pokedex.png" alt="Logo" class="logo"></a>
     <div class="user">Usuario Admin</div>
 </header>

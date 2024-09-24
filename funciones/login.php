@@ -9,7 +9,7 @@ class Login{
     $respuesta=[];
     try{
         if($user!='' && $contrasena!=''){
-          include './conexion.php' ;
+          include './conexion.php';
           $consulta_login="SELECT * FROM usuario WHERE usuario = ? AND password=?";
           $print="SELECT * FROM usuario WHERE usuario = '$user' AND password='$contrasena'";
           $resultado = $conn->prepare($consulta_login);

@@ -1,19 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Tres columnas: la del centro para el logo */
     align-items: center;
+    padding: 10px 20px;
 }
 
-.formulario_login {
-    display: inline;
+/* Centrar el logo */
+.header .logo-container {
+    grid-column: 2; /* Poner el logo en la segunda columna */
+    justify-self: center;
 }
 
-.titulo {
-    font-size: 3em;
+/* Estilo para la imagen del logo */
+.header img {
+    height: 80px;
+}
+
+/* Sección del usuario o formulario de login */
+.header .usuario {
+    grid-column: 3; /* Colocar el formulario o usuario logueado en la tercera columna */
+    justify-self: end; /* Alinear hacia la derecha */
+    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre los elementos */
+}
+
+/* Estilo para el nombre del usuario logueado */
+.header .user {
+    font-size: 18px;
+    color: #555;
     font-weight: bold;
 }
 
-.logo {
-    width: 20vh;
+/* Botón de cerrar sesión */
+.cerrar_sesion {
+    color: #fff;
+    background-color: #ff3b3b;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.cerrar_sesion:hover {
+    background-color: #e02a2a;
+}
+
+/* Estilo del formulario de login */
+.formulario_login {
+    font-family: "Press Start 2P", system-ui;
+    display: flex;
+    gap: 10px; /* Espacio entre inputs */
+    align-items: center;
+}
+
+.formulario_login input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.formulario_login input::placeholder {
+    color: #888;
+}
+
+.formulario_login button {
+    font-family: "Press Start 2P", system-ui;
+    padding: 10px 20px;
+    background-color: #016cb1;
+    color: #ffcc01;
+    border: 5px solid #ffcc01;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulario_login button:hover {
+    background-color: #015388;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .header {
+        grid-template-columns: 1fr auto; /* Cambia el layout a dos columnas en móviles */
+    }
+
+    .logo-container {
+        grid-column: 1; /* Asegura que el logo siga al centro */
+    }
+
+    .usuario {
+        justify-self: center; /* Centra el login en móviles */
+    }
+
+    .formulario_login {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .formulario_login input, .formulario_login button {
+        width: 100%; /* Inputs y botones toman todo el ancho en móviles */
+    }
 }

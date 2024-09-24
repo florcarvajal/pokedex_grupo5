@@ -1,9 +1,5 @@
 <?php
 
-// Incluir la conexión a la base de datos
-session_start();
-$usuario_logueado=$_SESSION['usuario_nombre'];
-
 global $conn;
 include 'conexion.php';
 
@@ -35,25 +31,6 @@ $result = $conn->query($sql);
 <?php include 'header.php'; ?>
 
 <div class="container">
-
-    <div class="header">
-        <img class="logo" src="imagenes/logo.svg" alt="">
-        <span class="titulo">Pokédex</span>
-        <?php
-            if($usuario_logueado){
-                echo '<span class="usuario">'.$usuario_logueado.'</span>';
-                echo '<a href="desloguear.php" class="cerrar_sesion">x</a>';
-            }else{
-        ?>
-        <form action="loguear.php" class="formulario_login" method="post">
-            <input type="text" name="usuario" placeholder="usuario" required>
-            <input type="password" name="contrasena" placeholder="contraseña" required>
-            <button type="submit">Ingresar</button>            
-        </form>
-        <?php
-        }
-        ?>
-    </div>
 
 
     <!-- Barra de busqueda -->

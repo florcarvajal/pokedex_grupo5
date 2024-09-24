@@ -40,8 +40,10 @@ $result = $conn->query($sql);
         <span class="titulo">Pokédex</span>
         <?php
             if($usuario_logueado){
+                echo '<div class="nombre_usuario">';
                 echo '<span class="usuario">'.$usuario_logueado.'</span>';
-                echo '<a href="desloguear.php" class="cerrar_sesion">x</a>';
+                echo '<a href="desloguear.php" class="cerrar_sesion"><img src="imagenes/logout.png" style="width: 20%" alt="cerrar sesion"></a>';
+                echo '</div>';
             }else{
         ?>
         <form action="loguear.php" class="formulario_login" method="post">

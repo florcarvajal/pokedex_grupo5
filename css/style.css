@@ -17,3 +17,17 @@
 .logo {
     width: 20vh;
 }
+
+.nombre_usuario {
+    display: flex;
+    justify-content: space-around;
+    width: 15%;
+    align-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.cerrar_sesion {
+    display: flex;
+    justify-content: center;
+}

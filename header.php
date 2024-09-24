@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$usuario_logueado=$_SESSION['usuario_nombre'];
+$usuario_logueado = isset($_SESSION['usuario_nombre']) ? $_SESSION['usuario_nombre'] : null;
 
 ?>
 

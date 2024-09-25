@@ -6,7 +6,7 @@ include 'crearPokemonQueries.php';
 
 $search = isset($_POST['search']) ? trim($_POST['search']) : '';
 
-$sql = "SELECT p.nombre, p.id_unico, p.imagen, p.descripcion, t.tipo, t.imagen AS tipo_imagen
+$sql = "SELECT p.id, p.nombre, p.id_unico, p.imagen, p.descripcion, t.tipo, t.imagen AS tipo_imagen
         FROM pokemones p
         JOIN tipo t ON p.tipo_id = t.id";
 
@@ -89,7 +89,7 @@ echo $mensajeEditar;
                 echo '<div class="pokemon-card"><div></div><div>Pokémon no encontrado</div><div></div></div>';
             }
 
-            $sql_todos = "SELECT p.nombre, p.id_unico, p.imagen, p.descripcion, t.tipo, t.imagen AS tipo_imagen
+            $sql_todos = "SELECT p.id, p.nombre, p.id_unico, p.imagen, p.descripcion, t.tipo, t.imagen AS tipo_imagen
                   FROM pokemones p
                   JOIN tipo t ON p.tipo_id = t.id";
             $result_todos = $conn->query($sql_todos);

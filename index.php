@@ -23,12 +23,24 @@ $carpetaImagenes = 'imagenes/';
 $imagenes = glob($carpetaImagenes . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
 $imagenOk = false;
 
+$idEditar = extractGetParameterOrDefault("idEditar", "- sin nombre -");
+$nombreEditar = extractGetParameterOrDefault("nombreEditar", "- sin nombre -");
+$descripcionEditar = extractGetParameterOrDefault("descripcionEditar", "- sin descripcion-");
+$tipoEditar = extractGetParameterOrDefault("tipoEditar", "- sin tipo -");
+$ID_UnicoEditar = extractGetParameterOrDefault("IDEditar", "- sin id -");
+$imagenOkEditar = false;
+
 
 list($rutaImagen, $imagenOk) = imagenCrear($nombre);
+list($rutaImagenEditar, $imagenOkEditar) = imagenCrearEditar($nombreEditar);
 $ID_Unico = IDPokemon($ID_Unico);
-$mensajeError = insertarPokemon($conn, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
+$ID_UnicoEditar = IDPokemon($ID_Unico);
 
-echo $mensajeError;
+$mensajeInsertar = insertarPokemon($conn, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
+$mensajeEditar = editarPokemon($conn, $idEditar, $ID_UnicoEditar, $nombreEditar, $rutaImagenEditar, $tipoEditar, $descripcionEditar);
+
+echo $mensajeInsertar;
+echo $mensajeEditar;
 
 ?>
 

@@ -14,6 +14,20 @@ if (!empty($search)) {
 }
 
 $result = $conn->query($sql);
+$nombre = extractGetParameterOrDefault("nombre", "- sin nombre -");
+$descripcion = extractGetParameterOrDefault("descripcion", "- sin descripcion-");
+$tipo = extractGetParameterOrDefault("tipo", "- sin tipo -");
+$ID_Unico = extractGetParameterOrDefault("ID", "- sin id -");
+$carpetaImagenes = 'imagenes/';
+$imagenes = glob($carpetaImagenes . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+$imagenOk = false;
+
+
+list($rutaImagen, $imagenOk) = imagenCrear($nombre);
+$ID_Unico = IDPokemon($ID_Unico);
+$mensajeError = insertarPokemon($conn, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
+
+echo $mensajeError;
 
 ?>
 
@@ -40,6 +54,12 @@ $result = $conn->query($sql);
         <button type="submit">
             <img src="imagenes/buscar.png" alt="Buscar" class="search-icon">
         </button>
+
+        <?php
+        if ($usuario_logueado) {
+            echo '  <a href="nuevoPokemon.php"><img src="imagenes/agregar.png" alt="Agregar" class="search-icon"></a>';
+        }
+        ?>
 
     </form>
 

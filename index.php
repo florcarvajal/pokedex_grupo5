@@ -2,7 +2,7 @@
 
 global $conn;
 include 'conexion.php';
-include 'nuevoPokemon.php';
+include 'crearPokemonQueries.php';
 
 $search = isset($_POST['search']) ? trim($_POST['search']) : '';
 

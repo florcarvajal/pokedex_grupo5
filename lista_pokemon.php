@@ -1,8 +1,10 @@
 <?php
 function listaPokemon($result) {
     while ($row = $result->fetch_assoc()) {
+        global $usuario_logueado;
         $colorClase = '';
         switch ($row["tipo"]) {
+
             case 'FUEGO':
                 $colorClase = 'color-fuego';
                 break;
@@ -26,6 +28,9 @@ function listaPokemon($result) {
         echo '</div>';
         echo '<div class="pokemon-tipo">';
         echo '<img src="imagenes/' . $row["tipo_imagen"] . '" class="tipo-image" alt="' . $row["tipo"] . '" title="' . $row["tipo"] . '">';
+        if ($usuario_logueado) {
+            echo '  <a href="editarPokemon.php?id=' . $row["id"] . '"><img src="imagenes/editar.png" alt="Agregar" class="search-icon"></a>';
+        }
         echo '</div>';
         echo '</div>'; // .pokemon-card
     }

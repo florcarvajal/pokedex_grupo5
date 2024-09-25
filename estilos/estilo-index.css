@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background-image: url("../imagenes/background.png");
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pokemon-card {
+    font-family: "Press Start 2P", system-ui;
+    background-color: #ffffff;
+    border: 2px solid #231e1e;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 50%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    align-items: center;
+}
+
+.pokemon-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.pokemon-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.pokemon-card .pokemon-info a.pokemon-card-link {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit;        /* Hereda el color del contenedor padre */
+}
+
+.pokemon-card .pokemon-info a.pokemon-card-link:hover {
+    text-decoration: none;  /* Sigue sin subrayar */
+    color: inherit;         /* No cambia de color */
+}
+
+
+.card-title {
+    font-family: "Press Start 2P", system-ui;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+
+}
+
+
+.tipo-image {
+    width: 60px;
+    height: 60px;
+}
+
+
+.color-fuego {
+    color: #ff7111;
+}
+
+.color-planta {
+    color: #3bcb02;
+}
+
+.color-electrico {
+    color: #FFC300;
+}
+
+.color-agua {
+    color: #717ffe;
+}
+
+.busqueda {
+    padding-top: 2%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.busqueda input[type="text"] {
+    background-color: #6c935e;
+    font-family: "Press Start 2P", system-ui;
+    padding: 10px; /* Espaciado interno */
+    border: 2px solid #231e1e;
+    border-radius: 25px;
+    outline: none;
+    width: 40%;
+    transition: border-color 0.3s;
+}
+
+.busqueda input[type="text"]::placeholder {
+    color: #201d1d;
+    opacity: 1;
+}
+
+
+.busqueda input[type="text"]:focus {
+    border-color: #393434;
+}
+
+.busqueda button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    width: auto;
+    height: 100%;
+    max-height: 30px;
+    transition: transform 0.3s;
+}
+
+
+.busqueda button:hover .search-icon {
+    transform: scale(1.1);
+}
+
+
+@media (max-width: 768px) {
+    body {
+        background-color: #dc1e2e;
+        background-image: none;
+    }
+    .pokemon-card {
+        width: 90%;
+    }
+
+    .pokemon-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .tipo-image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .busqueda input[type="text"] {
+    font-size: 12px;
+        width: 65%;
+
+    }
+}

@@ -20,9 +20,12 @@
       </list>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2mUQlqR7pKeiRKvzKK19WwjmUqp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,7 +34,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/xampp/htdocs/pokedex_grupo5-Florencia",
+    "git-widget-placeholder": "tamara",
+    "last_opened_file_path": "C:/xampp/htdocs/pokedex_grupo5-tamara",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -58,6 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1727128829235</updated>
       <workItem from="1727128830530" duration="20304000" />
+      <workItem from="1727151266915" duration="5957000" />
     </task>
     <servers />
   </component>

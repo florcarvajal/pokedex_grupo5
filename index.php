@@ -2,7 +2,7 @@
 
 global $conn;
 include 'conexion.php';
-//include 'nuevoPokemon.php';
+include 'crearPokemonQueries.php';
 
 $search = isset($_POST['search']) ? trim($_POST['search']) : '';
 
@@ -18,20 +18,26 @@ if (!empty($search)) {
 
 $result = $conn->query($sql);
 
-//$nombre = extractGetParameterOrDefault("nombre", "- sin nombre -");
-//$descripcion = extractGetParameterOrDefault("descripcion", "- sin descripcion-");
-//$tipo = extractGetParameterOrDefault("tipo", "- sin tipo -");
-//$ID_Unico = extractGetParameterOrDefault("ID", "- sin id -");
-//$carpetaImagenes = 'imagenes/';
-//$imagenes = glob($carpetaImagenes . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
-//$imagenOk = false;
-//
-//
-//list($rutaImagen, $imagenOk) = imagenCrear($nombre);
-//$ID_Unico = IDPokemon($ID_Unico);
-//$mensajeError = insertarPokemon($conn, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
-//
-//echo $mensajeError;
+$nombre = extractGetParameterOrDefault("nombre", "- sin nombre -");
+$descripcion = extractGetParameterOrDefault("descripcion", "- sin descripcion-");
+$tipo = extractGetParameterOrDefault("tipo", "- sin tipo -");
+$ID_Unico = extractGetParameterOrDefault("ID", "- sin id -");
+$ID = extractGetParameterOrDefault("idEditar", "- sin id -");
+$accion = extractGetParameterOrDefault("accion", "- sin id -");
+$carpetaImagenes = 'imagenes/';
+$imagenes = glob($carpetaImagenes . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+$imagenOk = false;
+$mensajeAccion = "";
+
+$rutaImagen = imagenCrear($nombre);
+
+
+$ID_Unico = IDPokemon($ID_Unico);
+if($accion == "crear") {
+    $mensajeAccion = insertarPokemon($conn, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
+}else if($accion == "editar") {
+    $mensajeAccion = editarPokemon($conn, $ID, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
+}
 
 
 ?>

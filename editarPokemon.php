@@ -7,15 +7,15 @@ include 'conexion.php';
 
 $id = $_GET['id'];
 
-    $sql = "SELECT * FROM pokemones WHERE id = ?";
-    $stmt = $conn ->prepare($sql);
-    $stmt->bind_Param('i',$id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+$sql = "SELECT * FROM pokemones WHERE id = ?";
+$stmt = $conn ->prepare($sql);
+$stmt->bind_Param('i',$id);
+$stmt->execute();
+$result = $stmt->get_result();
 
-    if($result -> num_rows > 0){
-        $datos = $result->fetch_assoc();
-    }
+if($result -> num_rows > 0){
+    $datos = $result->fetch_assoc();
+}
 
 
 
@@ -43,15 +43,16 @@ $id = $_GET['id'];
                 <form action='index.php' method="POST" enctype="multipart/form-data">
 
                     <input type="hidden" name="idEditar" value="<?php echo $id; ?>">
+                    <input type="hidden" name="accion" value="editar">
                     <div class="row mb-2">
                         <div class="col-md-6 mb-3">
-                            <input type="text" class="form-control" name="nombreEditar" placeholder="Nombre del pokemón" value="<?php echo isset($datos['nombre']) ? $datos['nombre'] : ''; ?>"required>
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre del pokemón" value="<?php echo isset($datos['nombre']) ? $datos['nombre'] : ''; ?>"required>
                             <div class="invalid-feedback">
                                 Por favor, ingrese el nombre del Pokemón
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <input type="text" class="form-control" name="descripcionEditar" placeholder="Descripción del pokemón" value="<?php echo isset($datos['descripcion']) ? $datos['descripcion'] : ''; ?>"required>
+                            <input type="text" class="form-control" name="descripcion" placeholder="Descripción del pokemón" value="<?php echo isset($datos['descripcion']) ? $datos['descripcion'] : ''; ?>"required>
                             <div class="invalid-feedback">
                                 Por favor, ingrese la descripción del Pokemón
                             </div>
@@ -62,7 +63,7 @@ $id = $_GET['id'];
 
                     <div class="row mb-4 mt-0">
                         <div class="col-md-12">
-                            <input class="form-control" type="file" name="imagenEditar" id="formFile" value="<?php echo isset($datos['imagen']) ? $datos['imagen'] : ''; ?>" required>
+                            <input class="form-control" type="file" name="imagen" id="formFile" value="<?php echo isset($datos['imagen']) ? $datos['imagen'] : ''; ?>" required>
                             <div class="invalid-feedback">
                                 Por favor, suba una imagen del Pokemón.
                             </div>
@@ -71,11 +72,11 @@ $id = $_GET['id'];
 
                     <div class="row mb-4">
                         <div class="col-md-6 mb-3">
-                            <select class="form-control" name="tipoEditar" value="<?php echo isset($datos['tipo_id']) ? $datos['tipo_id'] : ''; ?>"required>
-                                <option value="3">Fuego</option>
-                                <option value="1">Electrico</option>
-                                <option value="2">Agua</option>
-                                <option value="4">Planta</option>
+                            <select class="form-control" name="tipo" required>
+                                <option value="3" <?php echo isset($datos['tipo_id']) && $datos['tipo_id'] == 3 ? 'selected' : ''; ?>>Fuego</option>
+                                <option value="1" <?php echo isset($datos['tipo_id']) && $datos['tipo_id'] == 1 ? 'selected' : ''; ?>>Electrico</option>
+                                <option value="2" <?php echo isset($datos['tipo_id']) && $datos['tipo_id'] == 2 ? 'selected' : ''; ?>>Agua</option>
+                                <option value="4" <?php echo isset($datos['tipo_id']) && $datos['tipo_id'] == 4 ? 'selected' : ''; ?>>Planta</option>
                             </select>
                             <div class="invalid-feedback">
                                 Por favor, seleccione el tipo del Pokemón.
@@ -83,7 +84,7 @@ $id = $_GET['id'];
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <input type="number" class="form-control" name="IDEditar" placeholder="Número del Pokemón" value="<?php echo isset($datos['id_unico']) ?  substr($datos['id_unico'], 1) : ''; ?>" required>
+                            <input type="number" class="form-control" name="ID" placeholder="Número del Pokemón" value="<?php echo isset($datos['id_unico']) ?  substr($datos['id_unico'], 1) : ''; ?>" required>
                             <div class="invalid-feedback">
                                 Por favor, ingrese el número del Pokemón.
                             </div>

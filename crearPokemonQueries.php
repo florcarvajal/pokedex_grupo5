@@ -22,21 +22,8 @@ function imagenCrear($nombre)
         $imagenOk = true;
     }
 
-}
-function imagenCrearEditar($nombre)
-{
-    $carpetaImagenes = 'imagenes/';
-    $rutaImagen = '';
-    $imagenOk = false;
+    return $imagenOk ? $rutaImagen : $rutaImagen;
 
-    if (isset($_FILES["imagenEditar"]) && $_FILES["imagenEditar"]["error"] == 0 && $_FILES["imagenEditar"]["size"] > 0) {
-        $rutaImagen = $nombre . rand(0, 1000000) . $_FILES["imagenEditar"]["name"];
-        move_uploaded_file($_FILES["imagenEditar"]["tmp_name"], $carpetaImagenes . $rutaImagen);
-        $imagenOk = true;
-    }
-
-
-    return [$rutaImagen, $imagenOk];
 }
 
 function IDPokemon($ID_Unico) {
@@ -61,7 +48,7 @@ function insertarPokemon($conn, $ID_Unico, $nombre, $rutaImagen, $tipo, $descrip
         $crearPokemonSQL = "INSERT INTO pokemones (id_unico, nombre, imagen, tipo_id, descripcion) VALUES ('$ID_Unico', '$nombre', '$rutaImagen', '$tipo', '$descripcion')";
 
         if ($conn->query($crearPokemonSQL) === TRUE) {
-            return "Nuevo Pokémon insertado correctamente";
+            return "creado";
         } else {
             return "Error: " . $crearPokemonSQL . "<br>" . $conn->error;
         }
@@ -76,7 +63,7 @@ function editarPokemon($conn, $ID, $ID_Unico, $nombre, $rutaImagen, $tipo, $desc
                      tipo_id = '$tipo', descripcion = '$descripcion' WHERE id = $ID";
 
         if ($conn->query($editarPokemonSQL) === TRUE) {
-            return "Pokemon editado correctamente";
+            return "editado";
         } else {
             return "Error: " . $editarPokemonSQL . "<br>" . $conn->error;
         }

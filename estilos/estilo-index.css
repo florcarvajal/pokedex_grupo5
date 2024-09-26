@@ -39,7 +39,13 @@ body {
     justify-content: space-between;
 
     align-items: center;
+
+
 }
+
+
+
+
 
 .pokemon-card:hover {
     transform: scale(1.05);
@@ -85,16 +91,21 @@ body {
     height: 60px;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
 .btn-editar {
-    font-family: "Press Start 2P", system-ui;
+    display: inline-block; /* Permite que el enlace se comporte como un botón */
     padding: 10px 20px;
     background-color: #ffcc01;
     color: #016cb1;
     border: 5px solid #016cb1;
     font-size: 14px;
-    cursor: pointer;
+    text-decoration: none; /* Elimina el subrayado */
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .btn-editar:hover {
@@ -111,7 +122,7 @@ body {
     .links {
         color: #231e1e;
         text-decoration: none;
-    }s
+    }
 
    .links:visited {
         color: #231e1e;

@@ -20,24 +20,29 @@ function listaPokemon($result, $usuario_logueado) {
                 break;
         }
 
-        echo '<div class="pokemon-card ' . $colorClase . '">';
+        echo '<div class="pokemon-card ' . $colorClase . '">'; // Inicia la tarjeta
 
-        echo '<div class="pokemon-image-container">';
+        // Enlace envuelve la imagen y la información
+        echo '<a href="pokemon.php?id_unico=' . $row["id_unico"] . '" class="pokemon-image-container">';
         echo '<img src="imagenes/' . $row["imagen"] . '" class="pokemon-image" alt="' . $row["nombre"] . '">';
-        echo '</div>';
-        echo '<div class="pokemon-info">';
+        echo '</a>';
+
+        echo '<a href="pokemon.php?id_unico=' . $row["id_unico"] . '" class="pokemon-info">';
         echo '<h5 class="card-title">' . $row["nombre"] . '</h5>';
-        echo '</div>';
-        echo '<div class="pokemon-tipo">';
+        echo '</a>';
+
+        echo '<a href="pokemon.php?id_unico=' . $row["id_unico"] . '" class="pokemon-tipo">';
         echo '<img src="imagenes/' . $row["tipo_imagen"] . '" class="tipo-image" alt="' . $row["tipo"] . '" title="' . $row["tipo"] . '">';
-        echo '</div>';
+        echo '</a>';
+
+        // Botón de edición que redirige a la página de edición
         if ($usuario_logueado) {
             echo '<div class="editar">';
-            echo '<a href="editarPokemon.php?id=' . $row['id'] . '"><button class="btn-editar">Editar</button></a>';
+            echo '<a href="editarPokemon.php?id=' . $row['id'] . '" class="btn-editar">Editar</a>'; // Usa un enlace estilizado como botón
             echo '</div>';
         }
 
-        echo '</div>'; // .pokemon-card
+        echo '</div>'; // Cierra la tarjeta
     }
-}
+    }
 ?>

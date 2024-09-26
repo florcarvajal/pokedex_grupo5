@@ -88,7 +88,15 @@
     background-color: #015388;
 }
 
+.btn-success {
+    background-color: #016cb1!important;
+
+
+}
+
 #cancelar-boton-login{
+    background-color: #8c8c8c;
+    border: none;
     margin-right: 10px;
 }
 /* Ajustes responsivos */

@@ -22,7 +22,7 @@ $current_page = "nuevoPokemon.php";
     <div class="row justify-content-center">
         <div class="col-l6-6 col-md-10 mt-4">
             <div class="form-container mt-5">
-                <h2 class="text-center mt-2 mb-5 form-titulo">Registrar un pokemón nuevo</h2>
+                <h2 class="text-center mt-2 mb-5 form-titulo">Registrar un pokémon nuevo</h2>
                 <form action='index.php' method="POST" enctype="multipart/form-data">
                         <div class="row mb-2">
                             <div class="col-md-6 mb-3">

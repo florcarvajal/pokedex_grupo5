@@ -90,6 +90,9 @@ $id = $_GET['id'];
                         </div>
                     </div>
                     <div class="row justify-content-center mb-3">
+                        <button class="btn btn-warning botonform w-25" onclick="regresar()" id="cancelar-boton-login">
+                            Cancelar
+                        </button>
                         <button type="submit" class="btn btn-success botonform w-25" id="registrar-boton-login">
                             Registrar
                         </button>

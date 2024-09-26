@@ -39,3 +39,8 @@ $usuario_logueado = isset($_SESSION['usuario_nombre']) ? $_SESSION['usuario_nomb
 
 </body>
 </html>
+<script>
+    function regresar(){
+        window.location="./";
+    }
+</script>

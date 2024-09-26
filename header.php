@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -11,6 +12,7 @@ $usuario_logueado = isset($_SESSION['usuario_nombre']) ? $_SESSION['usuario_nomb
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>

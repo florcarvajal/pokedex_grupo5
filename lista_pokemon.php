@@ -1,4 +1,5 @@
 <?php
+
 function listaPokemon($result, $usuario_logueado) {
     while ($row = $result->fetch_assoc()) {
         global $usuario_logueado;
@@ -20,6 +21,7 @@ function listaPokemon($result, $usuario_logueado) {
         }
 
         echo '<div class="pokemon-card ' . $colorClase . '">';
+
         echo '<div class="pokemon-image-container">';
         echo '<img src="imagenes/' . $row["imagen"] . '" class="pokemon-image" alt="' . $row["nombre"] . '">';
         echo '</div>';

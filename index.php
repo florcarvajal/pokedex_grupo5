@@ -6,7 +6,9 @@ include 'conexion.php';
 
 $search = isset($_POST['search']) ? trim($_POST['search']) : '';
 
+
 $sql = "SELECT p.nombre,p.id, p.id_unico, p.imagen, p.descripcion, t.tipo, t.imagen AS tipo_imagen
+
         FROM pokemones p
         JOIN tipo t ON p.tipo_id = t.id";
 
@@ -15,6 +17,7 @@ if (!empty($search)) {
 }
 
 $result = $conn->query($sql);
+
 //$nombre = extractGetParameterOrDefault("nombre", "- sin nombre -");
 //$descripcion = extractGetParameterOrDefault("descripcion", "- sin descripcion-");
 //$tipo = extractGetParameterOrDefault("tipo", "- sin tipo -");
@@ -29,6 +32,7 @@ $result = $conn->query($sql);
 //$mensajeError = insertarPokemon($conn, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
 //
 //echo $mensajeError;
+
 
 ?>
 
@@ -47,7 +51,6 @@ $result = $conn->query($sql);
 
 <div class="container">
 
-
     <!-- Barra de busqueda -->
     <form method="POST" action="" class="busqueda">
 
@@ -57,6 +60,7 @@ $result = $conn->query($sql);
         </button>
 
     </form>
+
 
 
     <?php
@@ -73,7 +77,9 @@ $result = $conn->query($sql);
         include 'lista_pokemon.php';
 
         if ($result->num_rows > 0) {
+
             listaPokemon($result, $usuario_logueado);
+
         } else {
             if (!empty($search)) {
                 echo '<div class="pokemon-card"><div></div><div>Pokémon no encontrado</div><div></div></div>';
@@ -85,6 +91,7 @@ $result = $conn->query($sql);
             $result_todos = $conn->query($sql_todos);
 
             if ($result_todos->num_rows > 0) {
+
                 listaPokemon($result_todos,$usuario_logueado); // Mostrar todos los Pokémon
             } else {
                 echo '<p class="text-center">No se encontraron pokémon.</p>';
@@ -101,3 +108,4 @@ $result = $conn->query($sql);
 // Cerrar la conexión
 $conn->close();
 ?>
+

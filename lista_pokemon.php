@@ -1,8 +1,11 @@
 <?php
-function listaPokemon($result) {
+
+function listaPokemon($result, $usuario_logueado) {
     while ($row = $result->fetch_assoc()) {
+        global $usuario_logueado;
         $colorClase = '';
         switch ($row["tipo"]) {
+
             case 'FUEGO':
                 $colorClase = 'color-fuego';
                 break;
@@ -19,28 +22,22 @@ function listaPokemon($result) {
 
         echo '<div class="pokemon-card ' . $colorClase . '">';
 
-
         echo '<div class="pokemon-image-container">';
         echo '<img src="imagenes/' . $row["imagen"] . '" class="pokemon-image" alt="' . $row["nombre"] . '">';
         echo '</div>';
-
-
         echo '<div class="pokemon-info">';
-        echo '<a href="pokemon.php?id_unico=' . $row["id_unico"] . '" class="pokemon-card-link">';
         echo '<h5 class="card-title">' . $row["nombre"] . '</h5>';
-        echo '</a>';
         echo '</div>';
-
         echo '<div class="pokemon-tipo">';
         echo '<img src="imagenes/' . $row["tipo_imagen"] . '" class="tipo-image" alt="' . $row["tipo"] . '" title="' . $row["tipo"] . '">';
         echo '</div>';
+        if ($usuario_logueado) {
+            echo '<div class="editar">';
+            echo '<a href="editarPokemon.php?id=' . $row['id'] . '"><button class="btn-editar">Editar</button></a>';
+            echo '</div>';
+        }
 
         echo '</div>'; // .pokemon-card
-
-
     }
 }
 ?>
-
-
-

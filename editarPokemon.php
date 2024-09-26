@@ -39,7 +39,7 @@ $id = $_GET['id'];
     <div class="row justify-content-center">
         <div class="col-l6-6 col-md-10 mt-4">
             <div class="form-container mt-5">
-                <h2 class="text-center mt-2 mb-5 form-titulo">Registrar un pokemón nuevo</h2>
+                <h2 class="text-center mt-2 mb-5 form-titulo">Editar pokemón</h2>
                 <form action='index.php' method="POST" enctype="multipart/form-data">
 
                     <input type="hidden" name="idEditar" value="<?php echo $id; ?>">
@@ -94,7 +94,7 @@ $id = $_GET['id'];
                             Cancelar
                         </button>
                         <button type="submit" class="btn btn-success botonform w-25" id="registrar-boton-login">
-                            Registrar
+                            Editar
                         </button>
                     </div>
                 </form>

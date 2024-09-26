@@ -56,13 +56,14 @@ $result = $conn->query($sql);
             <img src="imagenes/buscar.png" alt="Buscar" class="search-icon">
         </button>
 
-        <?php
-        if ($usuario_logueado) {
-            echo '  <a href="nuevoPokemon.php"><img src="imagenes/agregar.png" alt="Agregar" class="search-icon"></a>';
-        }
-        ?>
-
     </form>
+
+
+    <?php
+    if ($usuario_logueado) {
+        echo '<a href="nuevoPokemon.php" class="links"> <div class="agregar-pokemon">Agregar nuevo pokémon<span><img src="imagenes/agregar.png" alt="Agregar" class="search-icon"></span></div> </a>';
+    }
+    ?>
 
 
     <div class="pokemon-list">
@@ -78,7 +79,7 @@ $result = $conn->query($sql);
                 echo '<div class="pokemon-card"><div></div><div>Pokémon no encontrado</div><div></div></div>';
             }
 
-            $sql_todos = "SELECT p.nombre, p.id_unico, p.imagen, p.descripcion, t.tipo, t.imagen AS tipo_imagen
+            $sql_todos = "SELECT p.nombre,p.id, p.id_unico, p.imagen, p.descripcion, t.tipo, t.imagen AS tipo_imagen
                   FROM pokemones p
                   JOIN tipo t ON p.tipo_id = t.id";
             $result_todos = $conn->query($sql_todos);

@@ -8,6 +8,7 @@ body {
 }
 
 .container {
+    font-family: "Press Start 2P", system-ui;
     max-width: 1200px;
     margin: 0 auto;
 
@@ -83,7 +84,30 @@ body {
     background-color: #ec971f;
 }
 
+.agregar-pokemon {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+    .links {
+        color: #231e1e;
+        text-decoration: none;
+    }s
 
+   .links:visited {
+        color: #231e1e;
+    }
+
+    .links:hover {
+        color: #ffcc01;
+        text-decoration: underline;
+    }
+
+.links:active {
+    color: #ffcc01; /* Cambia este valor al color que desees para el efecto activo */
+}
 
 .color-fuego {
     color: #ff7111;
@@ -144,6 +168,7 @@ body {
     height: 100%;
     max-height: 30px;
     transition: transform 0.3s;
+
 }
 
 

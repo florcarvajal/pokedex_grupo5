@@ -2,6 +2,8 @@
 $current_page = "nuevoPokemon.php";
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

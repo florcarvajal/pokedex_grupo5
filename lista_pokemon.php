@@ -1,5 +1,5 @@
 <?php
-function listaPokemon($result) {
+function listaPokemon($result, $usuario_logueado) {
     while ($row = $result->fetch_assoc()) {
         global $usuario_logueado;
         $colorClase = '';
@@ -28,10 +28,13 @@ function listaPokemon($result) {
         echo '</div>';
         echo '<div class="pokemon-tipo">';
         echo '<img src="imagenes/' . $row["tipo_imagen"] . '" class="tipo-image" alt="' . $row["tipo"] . '" title="' . $row["tipo"] . '">';
-        if ($usuario_logueado) {
-            echo '  <a href="editarPokemon.php?id=' . $row["id"] . '"><img src="imagenes/editar.png" alt="Agregar" class="search-icon"></a>';
-        }
         echo '</div>';
+        if ($usuario_logueado) {
+            echo '<div class="editar">';
+            echo '<a href="editarPokemon.php?id=' . $row['id'] . '"><button class="btn-editar">Editar</button></a>';
+            echo '</div>';
+        }
+
         echo '</div>'; // .pokemon-card
     }
 }

@@ -30,8 +30,9 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 50%;
     text-align: center;
-    display: grid;
-    grid-template-columns: 20% 60% 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -59,12 +60,29 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     margin: 0;
+    padding: 0 20px;
 }
 
 .tipo-image {
     width: 60px;
     height: 60px;
 }
+
+.btn-editar {
+    font-family: "Press Start 2P", system-ui;
+    padding: 10px 20px;
+    background-color: #ffcc01;
+    color: #016cb1;
+    border: 5px solid #016cb1;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-editar:hover {
+    background-color: #ec971f;
+}
+
 
 
 .color-fuego {

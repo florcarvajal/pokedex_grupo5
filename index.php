@@ -2,11 +2,11 @@
 
 global $conn;
 include 'conexion.php';
-include 'nuevoPokemon.php';
+//include 'nuevoPokemon.php';
 
 $search = isset($_POST['search']) ? trim($_POST['search']) : '';
 
-$sql = "SELECT p.nombre, p.id_unico, p.imagen, p.descripcion, t.tipo, t.imagen AS tipo_imagen
+$sql = "SELECT p.nombre,p.id, p.id_unico, p.imagen, p.descripcion, t.tipo, t.imagen AS tipo_imagen
         FROM pokemones p
         JOIN tipo t ON p.tipo_id = t.id";
 
@@ -15,20 +15,20 @@ if (!empty($search)) {
 }
 
 $result = $conn->query($sql);
-$nombre = extractGetParameterOrDefault("nombre", "- sin nombre -");
-$descripcion = extractGetParameterOrDefault("descripcion", "- sin descripcion-");
-$tipo = extractGetParameterOrDefault("tipo", "- sin tipo -");
-$ID_Unico = extractGetParameterOrDefault("ID", "- sin id -");
-$carpetaImagenes = 'imagenes/';
-$imagenes = glob($carpetaImagenes . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
-$imagenOk = false;
-
-
-list($rutaImagen, $imagenOk) = imagenCrear($nombre);
-$ID_Unico = IDPokemon($ID_Unico);
-$mensajeError = insertarPokemon($conn, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
-
-echo $mensajeError;
+//$nombre = extractGetParameterOrDefault("nombre", "- sin nombre -");
+//$descripcion = extractGetParameterOrDefault("descripcion", "- sin descripcion-");
+//$tipo = extractGetParameterOrDefault("tipo", "- sin tipo -");
+//$ID_Unico = extractGetParameterOrDefault("ID", "- sin id -");
+//$carpetaImagenes = 'imagenes/';
+//$imagenes = glob($carpetaImagenes . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+//$imagenOk = false;
+//
+//
+//list($rutaImagen, $imagenOk) = imagenCrear($nombre);
+//$ID_Unico = IDPokemon($ID_Unico);
+//$mensajeError = insertarPokemon($conn, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
+//
+//echo $mensajeError;
 
 ?>
 
@@ -67,11 +67,12 @@ echo $mensajeError;
 
     <div class="pokemon-list">
 
+
         <?php
         include 'lista_pokemon.php';
 
         if ($result->num_rows > 0) {
-            listaPokemon($result);
+            listaPokemon($result, $usuario_logueado);
         } else {
             if (!empty($search)) {
                 echo '<div class="pokemon-card"><div></div><div>Pokémon no encontrado</div><div></div></div>';
@@ -83,7 +84,7 @@ echo $mensajeError;
             $result_todos = $conn->query($sql_todos);
 
             if ($result_todos->num_rows > 0) {
-                listaPokemon($result_todos); // Mostrar todos los Pokémon
+                listaPokemon($result_todos,$usuario_logueado); // Mostrar todos los Pokémon
             } else {
                 echo '<p class="text-center">No se encontraron pokémon.</p>';
             }

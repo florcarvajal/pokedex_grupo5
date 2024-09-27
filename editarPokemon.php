@@ -61,14 +61,14 @@ if($result -> num_rows > 0){
 
 
 
-                    <div class="row mb-4 mt-0">
-                        <div class="col-md-12">
-                            <input class="form-control" type="file" name="imagen" id="formFile" value="<?php echo isset($datos['imagen']) ? $datos['imagen'] : ''; ?>" required>
-                            <div class="invalid-feedback">
-                                Por favor, suba una imagen del Pokemón.
-                            </div>
+
+                    <div class="col-md-12 mb-4">
+                        <input class="form-control" type="file" name="imagen" id="formFile" value="<?php echo isset($datos['imagen']) ? $datos['imagen'] : ''; ?>" required>
+                        <div class="invalid-feedback">
+                            Por favor, suba una imagen del Pokemón.
                         </div>
                     </div>
+
 
                     <div class="row mb-4">
                         <div class="col-md-6 mb-3">
@@ -91,12 +91,14 @@ if($result -> num_rows > 0){
                         </div>
                     </div>
                     <div class="row justify-content-center mb-3">
-                        <button class="btn btn-warning botonform w-25" onclick="regresar()" id="cancelar-boton-login">
-                            Cancelar
-                        </button>
-                        <button type="submit" class="btn btn-success botonform w-25" id="registrar-boton-login">
-                            Editar
-                        </button>
+                        <div class="col-12 col-sm-8 col-md-6 d-flex justify-content-center">
+                            <button class="btn btn-warning botonform me-3" onclick="regresar()" id="cancelar-boton-login">
+                                Cancelar
+                            </button>
+                            <button type="submit" class="btn btn-success botonform" id="registrar-boton-login">
+                                Registrar
+                            </button>
+                        </div>
                     </div>
                 </form>
 

@@ -8,7 +8,7 @@ $current_page = "nuevoPokemon.php";
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pokédex</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="estilos/estilo-index.css">
@@ -42,14 +42,14 @@ $current_page = "nuevoPokemon.php";
 
 
 
-                    <div class="row mb-4 mt-0">
-                        <div class="col-md-12">
-                            <input class="form-control" type="file" name="imagen" id="formFile" required>
-                            <div class="invalid-feedback">
-                                Por favor, suba una imagen del Pokemón.
-                            </div>
+
+                    <div class="col-md-12 mb-4">
+                        <input class="form-control" type="file" name="imagen" id="formFile" required>
+                        <div class="invalid-feedback">
+                            Por favor, suba una imagen del Pokemón.
                         </div>
                     </div>
+
 
                     <div class="row mb-4">
                         <div class="col-md-6 mb-3">
@@ -72,12 +72,14 @@ $current_page = "nuevoPokemon.php";
                         </div>
                     </div>
                     <div class="row justify-content-center mb-3">
-                        <button class="btn btn-warning botonform w-25" onclick="regresar()" id="cancelar-boton-login">
-                            Cancelar
-                        </button>
-                        <button type="submit" class="btn btn-success botonform w-25" id="registrar-boton-login">
-                            Registrar
-                        </button>
+                        <div class="col-12 col-sm-8 col-md-6 d-flex justify-content-center">
+                            <button class="btn btn-warning botonform me-3" onclick="regresar()" id="cancelar-boton-login">
+                                Cancelar
+                            </button>
+                            <button type="submit" class="btn btn-success botonform" id="registrar-boton-login">
+                                Registrar
+                            </button>
+                        </div>
                     </div>
                 </form>
 

@@ -33,10 +33,16 @@ $rutaImagen = imagenCrear($nombre);
 
 
 $ID_Unico = IDPokemon($ID_Unico);
+
+
 if($accion == "crear") {
     $mensajeAccion = insertarPokemon($conn, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
+    header("Location:index.php");
+    exit();
 }else if($accion == "editar") {
     $mensajeAccion = editarPokemon($conn, $ID, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
+    header("Location:index.php");
+    exit();
 }
 
 

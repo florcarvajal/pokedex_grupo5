@@ -82,9 +82,15 @@ switch ($pokemon["tipo"]) {
             <div class="pokemon-description">
                 <p><strong>Descripción:</strong> <?= htmlspecialchars($pokemon['descripcion']); ?></p>
             </div>
+            <div class="contenedor_btn">
+            <button class="btn btn-warning botonform me-6" onclick="regresar()" id="cancelar-boton-login">
+                                Volver
+            </button>
+            </div>
         </div>
 
     </div>
+    
 </div>
 
 </body>

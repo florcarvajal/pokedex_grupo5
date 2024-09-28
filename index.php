@@ -13,7 +13,9 @@ $sql = "SELECT p.nombre,p.id, p.id_unico, p.imagen, p.descripcion, t.tipo, t.ima
         JOIN tipo t ON p.tipo_id = t.id";
 
 if (!empty($search)) {
-    $sql .= " WHERE p.nombre LIKE '%" . $conn->real_escape_string($search) . "%'";
+    $sql .= " WHERE p.nombre LIKE '%" . $conn->real_escape_string($search) . "%' 
+    or t.tipo LIKE '%" . $conn->real_escape_string($search) . "%'
+    or p.id_unico LIKE '%" . $conn->real_escape_string($search) . "%'";
 }
 
 $result = $conn->query($sql);
@@ -66,7 +68,7 @@ if($accion == "crear") {
     <!-- Barra de busqueda -->
     <form method="POST" action="" class="busqueda">
 
-        <input type="text" placeholder="¿Quién es este pokémon?" name="search" />
+        <input type="text" placeholder="¿Quién es este pokémon?" name="search" value="<?= $search?>"/>
         <button type="submit">
             <img src="imagenes/buscar.png" alt="Buscar" class="search-icon">
         </button>

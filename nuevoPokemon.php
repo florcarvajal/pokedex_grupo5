@@ -73,7 +73,7 @@ $current_page = "nuevoPokemon.php";
                     </div>
                     <div class="row justify-content-center mb-3">
                         <div class="col-12 col-sm-8 col-md-6 d-flex justify-content-center">
-                            <button class="btn btn-warning botonform me-3" onclick="regresar()" id="cancelar-boton-login">
+                            <button type="button" class="btn btn-warning botonform me-3" onclick="regresar()" id="cancelar-boton-login">
                                 Cancelar
                             </button>
                             <button type="submit" class="btn btn-success botonform" id="registrar-boton-login">

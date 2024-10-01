@@ -230,6 +230,59 @@ h2 {
     font-size: 0.8rem !important;
 }
 
+@media (max-width: 1000px) {
+    body {
+        background-color: #dc1e2e;
+        background-image: none;
+    }
+
+    .pokemon-card {
+        width: 90%;
+        display: block;
+    }
+
+    .pokemon-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .pokemon-list {
+        padding: 20px;
+    }
+
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .tipo-image {
+        width: 30px;
+        height: 30px;
+        margin: 8px;
+    }
+
+
+    #cancelar-boton-login {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    #registrar-boton-login {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .busqueda input[type="text"] {
+        font-size: 12px;
+        width: 65%;
+
+    }
+
+    .btn-editar {
+        font-size: 9px;
+        padding: 7px 12px;
+    }
+}
 
 @media (max-width: 768px) {
     body {

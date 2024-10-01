@@ -65,7 +65,6 @@ if($accion == "crear") {
 
 <div class="container">
 
-    <!-- Barra de busqueda -->
     <form method="POST" action="" class="busqueda">
 
         <input type="text" placeholder="¿Quién es este pokémon?" name="search" value="<?= $search?>"/>
@@ -106,7 +105,7 @@ if($accion == "crear") {
 
             if ($result_todos->num_rows > 0) {
 
-                listaPokemon($result_todos,$usuario_logueado); // Mostrar todos los Pokémon
+                listaPokemon($result_todos,$usuario_logueado);
             } else {
                 echo '<p class="text-center">No se encontraron pokémon.</p>';
             }
@@ -119,7 +118,6 @@ if($accion == "crear") {
 </html>
 
 <?php
-// Cerrar la conexión
 $conn->close();
 ?>
 

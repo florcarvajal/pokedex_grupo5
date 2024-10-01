@@ -68,13 +68,13 @@ body {
 
 
 .pokemon-card .pokemon-info a.pokemon-card-link {
-    text-decoration: none; /* Elimina el subrayado */
-    color: inherit;        /* Hereda el color del contenedor padre */
+    text-decoration: none;
+    color: inherit;
 }
 
 .pokemon-card .pokemon-info a.pokemon-card-link:hover {
-    text-decoration: none;  /* Sigue sin subrayar */
-    color: inherit;         /* No cambia de color */
+    text-decoration: none;
+    color: inherit;
 }
 
 
@@ -97,13 +97,13 @@ a {
 }
 
 .btn-editar {
-    display: inline-block; /* Permite que el enlace se comporte como un botón */
+    display: inline-block;
     padding: 10px 20px;
     background-color: #ffcc01;
     color: #016cb1;
     border: 5px solid #016cb1;
     font-size: 14px;
-    text-decoration: none; /* Elimina el subrayado */
+    text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
@@ -134,7 +134,7 @@ a {
     }
 
 .links:active {
-    color: #ffcc01; /* Cambia este valor al color que desees para el efecto activo */
+    color: #ffcc01;
 }
 
 
@@ -164,7 +164,7 @@ a {
 .busqueda input[type="text"] {
     background-color: #6c935e;
     font-family: "Press Start 2P", system-ui;
-    padding: 10px; /* Espaciado interno */
+    padding: 10px;
     border: 2px solid #231e1e;
     border-radius: 25px;
     outline: none;

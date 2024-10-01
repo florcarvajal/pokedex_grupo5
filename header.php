@@ -13,7 +13,7 @@ $usuario_logueado = isset($_SESSION['usuario_nombre']) ? $_SESSION['usuario_nomb
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body>
 

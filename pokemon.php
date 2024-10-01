@@ -13,7 +13,7 @@ if ($id_unico) {
             WHERE p.id_unico = ?";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $id_unico);  // "i" para indicar que es un número entero
+    $stmt->bind_param("s", $id_unico);
     $stmt->execute();
     $resultado = $stmt->get_result();
 
@@ -28,7 +28,6 @@ if ($id_unico) {
     echo "ID del Pokémon no proporcionado.";
     exit();
 }
-// Define la clase de color en función del tipo de Pokémon
 $colorClase = '';
 switch ($pokemon["tipo"]) {
     case 'FUEGO':
@@ -63,22 +62,18 @@ switch ($pokemon["tipo"]) {
 <div class="container">
 
     <div class="pokemon-container">
-        <!-- Imagen del Pokémon -->
         <img src="imagenes/<?= htmlspecialchars($pokemon['imagen']); ?>" alt="<?= htmlspecialchars($pokemon['nombre']); ?>" class="pokemon-image img-fluid">
 
 
         <div class="pokemon-card">
-        <!-- Detalles del Pokémon -->
             <div class="pokemon-details">
                 <div class="pokemon-name <?= $colorClase; ?>"><?= htmlspecialchars($pokemon['nombre']); ?> <span class="pokemon-id">(<?= htmlspecialchars($pokemon['id_unico']); ?>)</span></div>
             </div>
-            <!-- Tipo del Pokémon -->
             <div class="tipo">
                 <img src="imagenes/<?= htmlspecialchars($pokemon['tipo_imagen']); ?>" alt="<?= htmlspecialchars($pokemon['tipo']); ?>" width="50">
                 <p><strong>Tipo:</strong> <?= htmlspecialchars($pokemon['tipo']); ?></p>
             </div>
 
-            <!-- Descripción del Pokémon -->
             <div class="pokemon-description">
                 <p><strong>Descripción:</strong> <?= htmlspecialchars($pokemon['descripcion']); ?></p>
             </div>

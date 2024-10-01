@@ -3,33 +3,29 @@
 .header {
 
     display: grid;
-    grid-template-columns: 1fr auto 1fr; /* Tres columnas: la del centro para el logo */
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 10px 20px;
 }
 
-/* Centrar el logo */
 .header .logo-container {
-    grid-column: 2; /* Poner el logo en la segunda columna */
+    grid-column: 2;
     justify-self: center;
 }
 
-/* Estilo para la imagen del logo */
 .header img {
     height: 80px;
 }
 
-/* Sección del usuario o formulario de login */
 .header .usuario {
-    grid-column: 3; /* Colocar el formulario o usuario logueado en la tercera columna */
-    justify-self: end; /* Alinear hacia la derecha */
+    grid-column: 3;
+    justify-self: end;
     text-align: right;
     display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre los elementos */
+    gap: 10px;
 }
 
-/* Estilo para el nombre del usuario logueado */
 .header .user {
     font-family: "Press Start 2P", system-ui;
     font-size: 12px;
@@ -37,7 +33,6 @@
     font-weight: bold;
 }
 
-/* Botón de cerrar sesión */
 .cerrar_sesion {
     font-family: "Press Start 2P", system-ui;
     color: #fff;
@@ -53,11 +48,10 @@
     background-color: #e02a2a;
 }
 
-/* Estilo del formulario de login */
 .formulario_login {
     font-family: "Press Start 2P", system-ui;
     display: flex;
-    gap: 10px; /* Espacio entre inputs */
+    gap: 10px;
     align-items: center;
 }
 
@@ -99,18 +93,17 @@
     border: none;
     margin-right: 10px;
 }
-/* Ajustes responsivos */
 @media (max-width: 768px) {
     .header {
-        grid-template-columns: 1fr auto; /* Cambia el layout a dos columnas en móviles */
+        grid-template-columns: 1fr auto;
     }
 
     .logo-container {
-        grid-column: 1; /* Asegura que el logo siga al centro */
+        grid-column: 1;
     }
 
     .usuario {
-        justify-self: center; /* Centra el login en móviles */
+        justify-self: center;
     }
 
     .formulario_login {
@@ -119,6 +112,6 @@
     }
 
     .formulario_login input, .formulario_login button {
-        width: 100%; /* Inputs y botones toman todo el ancho en móviles */
+        width: 100%;
     }
 }

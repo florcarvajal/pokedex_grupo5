@@ -20,9 +20,8 @@ function listaPokemon($result, $usuario_logueado) {
                 break;
         }
 
-        echo '<div class="pokemon-card ' . $colorClase . '">'; // Inicia la tarjeta
+        echo '<div class="pokemon-card ' . $colorClase . '">';
 
-        // Enlace envuelve la imagen y la información
         echo '<a href="pokemon.php?id_unico=' . $row["id_unico"] . '" class="pokemon-image-container">';
         echo '<img src="imagenes/' . $row["imagen"] . '" class="pokemon-image" alt="' . $row["nombre"] . '">';
         echo '</a>';
@@ -35,14 +34,14 @@ function listaPokemon($result, $usuario_logueado) {
         echo '<img src="imagenes/' . $row["tipo_imagen"] . '" class="tipo-image" alt="' . $row["tipo"] . '" title="' . $row["tipo"] . '">';
         echo '</a>';
 
-        // Botón de edición que redirige a la página de edición
+
         if ($usuario_logueado) {
             echo '<div class="editar">';
-            echo '<a href="editarPokemon.php?id=' . $row['id'] . '" class="btn-editar">Editar</a>'; // Usa un enlace estilizado como botón
+            echo '<a href="editarPokemon.php?id=' . $row['id'] . '" class="btn-editar">Editar</a>';
             echo '</div>';
         }
 
-        echo '</div>'; // Cierra la tarjeta
+        echo '</div>';
     }
     }
 ?>

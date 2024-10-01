@@ -19,34 +19,29 @@ if (!empty($search)) {
 }
 
 $result = $conn->query($sql);
+        function procesarPokemon($conn, $accion) {
+            $ID_Unico = extractGetParameterOrDefault("ID", "- sin id -");
+            $nombre = extractGetParameterOrDefault("nombre", "- sin nombre -");
+            $descripcion = extractGetParameterOrDefault("descripcion", "- sin descripcion-");
+            $tipo = extractGetParameterOrDefault("tipo", "- sin tipo -");
+            $rutaImagen = imagenCrear($nombre);
+            $ID_Unico = IDPokemon($ID_Unico);
 
-$nombre = extractGetParameterOrDefault("nombre", "- sin nombre -");
-$descripcion = extractGetParameterOrDefault("descripcion", "- sin descripcion-");
-$tipo = extractGetParameterOrDefault("tipo", "- sin tipo -");
-$ID_Unico = extractGetParameterOrDefault("ID", "- sin id -");
-$ID = extractGetParameterOrDefault("idEditar", "- sin id -");
-$accion = extractGetParameterOrDefault("accion", "- sin id -");
-$carpetaImagenes = 'imagenes/';
-$imagenes = glob($carpetaImagenes . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
-$imagenOk = false;
-$mensajeAccion = "";
+            if ($accion == 'crear') {
+                return insertarPokemon($conn, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
+            } elseif ($accion == 'editar') {
+                $ID = extractGetParameterOrDefault("idEditar", "- sin id -");
+                return editarPokemon($conn, $ID, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
+            }
 
-$rutaImagen = imagenCrear($nombre);
-
-
-$ID_Unico = IDPokemon($ID_Unico);
-
-
-if($accion == "crear") {
-    $mensajeAccion = insertarPokemon($conn, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
-    header("Location:index.php");
-    exit();
-}else if($accion == "editar") {
-    $mensajeAccion = editarPokemon($conn, $ID, $ID_Unico, $nombre, $rutaImagen, $tipo, $descripcion);
-    header("Location:index.php");
-    exit();
-}
-
+            return null;
+        }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['accion'])) {
+            $accion = $_POST['accion'];
+            $mensajeAccion = procesarPokemon($conn, $accion);
+            header("Location: index.php?mensaje=" . urlencode($mensajeAccion));
+            exit();
+        }
 
 ?>
 

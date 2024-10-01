@@ -16,6 +16,10 @@ body {
 
 }
 
+.botonera {
+    display: block !important;
+}
+
 
 .pokemon-list {
     display: flex;
@@ -119,19 +123,20 @@ a {
     justify-content: center;
     gap: 5px;
 }
-    .links {
-        color: #231e1e;
-        text-decoration: none;
-    }
 
-   .links:visited {
-        color: #231e1e;
-    }
+.links {
+    color: #231e1e;
+    text-decoration: none;
+}
 
-    .links:hover {
-        color: #ffcc01;
-        text-decoration: underline;
-    }
+.links:visited {
+    color: #231e1e;
+}
+
+.links:hover {
+    color: #ffcc01;
+    text-decoration: underline;
+}
 
 .links:active {
     color: #ffcc01;
@@ -231,8 +236,10 @@ h2 {
         background-color: #dc1e2e;
         background-image: none;
     }
+
     .pokemon-card {
         width: 90%;
+        display: block;
     }
 
     .pokemon-image {
@@ -240,18 +247,42 @@ h2 {
         height: 100px;
     }
 
+    .pokemon-list {
+        padding: 20px;
+    }
+
+
+
     .card-title {
         font-size: 20px;
     }
 
     .tipo-image {
-        width: 50px;
-        height: 50px;
+        width: 30px;
+        height: 30px;
+        margin: 8px;
+    }
+
+
+    #cancelar-boton-login {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    #registrar-boton-login {
+        width: 100%;
+        margin-bottom: 5px;
     }
 
     .busqueda input[type="text"] {
-    font-size: 12px;
+        font-size: 12px;
         width: 65%;
 
     }
+
+    .btn-editar {
+        font-size: 9px;
+        padding: 7px 12px;
+    }
+
 }

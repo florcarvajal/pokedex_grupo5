@@ -91,7 +91,7 @@ if($result -> num_rows > 0){
                         </div>
                     </div>
                     <div class="row justify-content-center mb-3">
-                        <div class="col-12 col-sm-8 col-md-6 d-flex justify-content-center">
+                        <div class="col-12 col-sm-8 col-md-6 d-flex justify-content-center botonera">
                             <button type="button" class="btn btn-warning botonform me-3" onclick="regresar()" id="cancelar-boton-login">
                                 Cancelar
                             </button>
